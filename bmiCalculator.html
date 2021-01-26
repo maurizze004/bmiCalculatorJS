@@ -1,0 +1,35 @@
+<html>
+    <script type='text/javascript'> 
+        function berechnen() {
+               var bmi;
+               var weight = document.bmiform.weight.value;
+               var height = document.bmiform.height.value;
+//show the errors if there are some
+           if (weight < 10 || weight > 200) { alert("Wrong weight. Please enter a correct weight"); return null; }
+           if (height < 50 || height > 250) { alert("Wrong height. Please enter a correct height"); return null; }
+           if (height < 50 || height > 250 && weight < 10 || weight > 200) { alert("Wrong values. Please try it again with correct values"); return null; }
+//calculating the body mass index
+           bmi = Math.round(weight / (Math.pow((height/100),2)));
+           output = "Your BMI is " + bmi + "! ";
+//output the result
+               if (bmi < 18) output += "You are severely underweight.";
+               if (bmi == 18) output += "You are clearly underweight.";
+               if (bmi == 19) output += "You are slightly underweight.";
+               if (bmi >= 20 && bmi <= 24) output += "This is in the ideal range.";
+               if (bmi >= 25 && bmi <= 29) output += "You are slightly to moderately overweight.";
+               if (bmi >= 30 && bmi <= 39) output += "You are clearly overweight.";
+               if (bmi >= 40) output += "You are very overweight.";
+           alert(output);
+       }
+    </script>
+
+<!-- here u have the HTML document included -->
+    <form name="bmiform" id="bmiform">
+        
+    <input placeholder="hight in cm" type="text" name="height"/>
+
+    <input placeholder="weight in kilogramm's " type="text" name="weight" />
+        
+    <input type="button" name="submit" value="berechnen" onclick="berechnen();" class="btn btn-success" style="margin-left: 170px; margin-top: 30px; font-size: 20px;">
+    </form>
+</html>
